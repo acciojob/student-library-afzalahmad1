@@ -41,7 +41,8 @@ public class StudentService {
 
     public void deleteStudent(int id){
         //Delete student and deactivate corresponding card
-        studentRepository4.deleteCustom(id);
         cardService4.deactivateCard(id);
+        studentRepository4.deleteCustom(id);
+
     }
 }
