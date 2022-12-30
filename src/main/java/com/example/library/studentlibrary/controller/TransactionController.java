@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class TransactionController {
 
     //Add required annotations
+    @Autowired
+    TransactionService transactionService;
     public ResponseEntity issueBook(@RequestParam("cardId") int cardId, @RequestParam("bookId") int bookId) throws Exception{
 
        return new ResponseEntity<>("transaction completed", HttpStatus.ACCEPTED);
@@ -19,7 +21,7 @@ public class TransactionController {
 
     //Add required annotations
     public ResponseEntity returnBook(@RequestParam("cardId") int cardId, @RequestParam("bookId") int bookId) throws Exception{
-
+        transactionService.returnBook(cardId, bookId);
         return new ResponseEntity<>("transaction completed", HttpStatus.ACCEPTED);
     }
 }
